@@ -252,8 +252,8 @@
                         <thead class="table-secondary border-dark">
                             <tr>
                                 <th class="text-start" style="width: 150px;">Mata Pelajaran</th>
-                                <th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th>
-                                <th>S6</th><th>S7</th><th>S8</th><th>S9</th><th>S10</th>
+                                <th>PN1</th><th>PN2</th><th>PN3</th><th>PN4</th><th>PN5</th>
+                                <th>PN6</th><th>PN7</th><th>PN8</th><th>PN9</th><th>PN10</th>
                                 <th class="table-primary border-dark">RATA²</th>
                             </tr>
                         </thead>
@@ -262,7 +262,7 @@
                     </table>
                 </div>
                 
-                <p class="text-muted small mt-2">* Angka berwarna <span class="text-danger fw-bold">Merah</span> menandakan nilai di bawah batas kelulusan (KKTP kelas).</p>
+                <p class="text-muted small mt-2">* Angka berwarna <span class="text-danger fw-bold">Merah</span> menandakan nilai di bawah batas ketuntasan (KKTP kelas).</p>
             </div>
             <div class="modal-footer bg-light no-print">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -502,11 +502,11 @@
                 const sum10 = formatNilaiKKTP(siswaNilai.SUM10 || '-');
 
                 tbody.innerHTML = `
-                    <tr><td><b>SUM 1</b></td><td>${sum1}</td><td><b>SUM 6</b></td><td>${sum6}</td></tr>
-                    <tr><td><b>SUM 2</b></td><td>${sum2}</td><td><b>SUM 7</b></td><td>${sum7}</td></tr>
-                    <tr><td><b>SUM 3</b></td><td>${sum3}</td><td><b>SUM 8</b></td><td>${sum8}</td></tr>
-                    <tr><td><b>SUM 4</b></td><td>${sum4}</td><td><b>SUM 9</b></td><td>${sum9}</td></tr>
-                    <tr><td><b>SUM 5</b></td><td>${sum5}</td><td><b>SUM 10</b></td><td>${sum10}</td></tr>
+                    <tr><td><b>PETIK NILAI 1</b></td><td>${sum1}</td><td><b>PETIK NILAI 6</b></td><td>${sum6}</td></tr>
+                    <tr><td><b>PETIK NILAI 2</b></td><td>${sum2}</td><td><b>PETIK NILAI 7</b></td><td>${sum7}</td></tr>
+                    <tr><td><b>PETIK NILAI 3</b></td><td>${sum3}</td><td><b>PETIK NILAI 8</b></td><td>${sum8}</td></tr>
+                    <tr><td><b>PETIK NILAI 4</b></td><td>${sum4}</td><td><b>PETIK NILAI 9</b></td><td>${sum9}</td></tr>
+                    <tr><td><b>PETIK NILAI 5</b></td><td>${sum5}</td><td><b>PETIK NILAI 10</b></td><td>${sum10}</td></tr>
                 `;
 
                 let rataRata = siswaNilai['RATA-RATA'] || siswaNilai['Rata-rata'] || '0';
@@ -595,16 +595,16 @@
 						return foundKey ? barisSiswa[foundKey] : '-';
 					};
 
-					const s1  = formatNilaiKKTP(getVal(['SUM1', 'SUM 1', 'S1']));
-					const s2  = formatNilaiKKTP(getVal(['SUM2', 'SUM 2', 'S2']));
-					const s3  = formatNilaiKKTP(getVal(['SUM3', 'SUM 3', 'S3']));
-					const s4  = formatNilaiKKTP(getVal(['SUM4', 'SUM 4', 'S4']));
-					const s5  = formatNilaiKKTP(getVal(['SUM5', 'SUM 5', 'S5']));
-					const s6  = formatNilaiKKTP(getVal(['SUM6', 'SUM 6', 'S6']));
-					const s7  = formatNilaiKKTP(getVal(['SUM7', 'SUM 7', 'S7']));
-					const s8  = formatNilaiKKTP(getVal(['SUM8', 'SUM 8', 'S8']));
-					const s9  = formatNilaiKKTP(getVal(['SUM9', 'SUM 9', 'S9']));
-					const s10 = formatNilaiKKTP(getVal(['SUM10', 'SUM 10', 'S10']));
+					const s1  = formatNilaiKKTP(getVal(['SUM1', 'PETIK NILAI 1', 'S1']));
+					const s2  = formatNilaiKKTP(getVal(['SUM2', 'PETIK NILAI 2', 'S2']));
+					const s3  = formatNilaiKKTP(getVal(['SUM3', 'PETIK NILAI 3', 'S3']));
+					const s4  = formatNilaiKKTP(getVal(['SUM4', 'PETIK NILAI 4', 'S4']));
+					const s5  = formatNilaiKKTP(getVal(['SUM5', 'PETIK NILAI 5', 'S5']));
+					const s6  = formatNilaiKKTP(getVal(['SUM6', 'PETIK NILAI 6', 'S6']));
+					const s7  = formatNilaiKKTP(getVal(['SUM7', 'PETIK NILAI 7', 'S7']));
+					const s8  = formatNilaiKKTP(getVal(['SUM8', 'PETIK NILAI 8', 'S8']));
+					const s9  = formatNilaiKKTP(getVal(['SUM9', 'PETIK NILAI 9', 'S9']));
+					const s10 = formatNilaiKKTP(getVal(['SUM10', 'PETIK NILAI 10', 'S10']));
                 
 					let rata = getVal(['RATA-RATA', 'RATA RATA', 'RATA²', 'AVERAGE']);
 					if (rata !== '-' && !isNaN(rata) && rata !== '') {
