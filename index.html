@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <style>
-        body { background-color: #f1f5f9; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { 
+            /* Perpaduan warna dasar, biru muda (tema PENABUR), abu-abu bersih, dan aksen kuning/oranye halus */
+            background: linear-gradient(-45deg, #f1f5f9, #dbeafe, #f8fafc, #fef3c7);
+            background-size: 400% 400%;
+            animation: gradientBergerak 12s ease infinite;
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            min-height: 100vh;
+        }
+
+        /* Keyframes untuk membuat efek gradasi bergerak mengalir */
+        @keyframes gradientBergerak {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Memastikan background cetak tetap putih bersih */
+        @media print {
+            body { background: #ffffff !important; animation: none; }
+        }
         .card { border: none; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
         
         /* Tema Warna Biru-Kuning Resmi PENABUR */
