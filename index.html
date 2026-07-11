@@ -11,38 +11,34 @@
         body { 
             position: relative;
             z-index: 1;
-            /* Perpaduan 4 titik warna gradasi estetis (Biru, Violet, Amber, & Soft Slate) */
-            background-color: #f8fafc;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(217, 119, 6, 0.08) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(248, 250, 252, 1) 0px, transparent 50%);
-            background-size: 200% 200%;
-            animation: auroraGlow 18s ease-in-out infinite alternate;
+            /* Perpaduan warna ekstrapolasi dari gambar: Biru, Ungu Muted, Merah, Kuning */
+            background: linear-gradient(-45deg, #2f74b3, #6c5876, #c62e26, #fdd800);
+            background-size: 300% 300%;
+            animation: gradientDinamic 15s ease infinite;
             font-family: 'Segoe UI', system-ui, sans-serif; 
             min-height: 100vh;
             background-attachment: fixed;
+            margin: 0;
         }
 
-        /* Pergerakan background ala Aurora */
-        @keyframes auroraGlow {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 50% 100%; }
-            100% { background-position: 100% 0%; }
+        /* Animasi pergerakan warna yang mulus */
+        @keyframes gradientDinamic {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* =========================================================
-           2. WATERMARK SMPK 3 PENABUR (Otomatis tanpa gambar luar)
+           2. WATERMARK SMPK 3 PENABUR (Disesuaikan untuk BG Gelap)
            ========================================================= */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             z-index: -1;
-            pointer-events: none; /* Agar tidak mengganggu klik pada website */
-            /* Kode SVG Watermark miring -30 derajat dengan transparansi tipis */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='250'%3E%3Ctext x='50%25' y='50%25' transform='rotate(-30 190 125)' fill='rgba(30, 58, 138, 0.05)' font-size='24' font-family='Segoe UI, system-ui, sans-serif' font-weight='800' text-anchor='middle' letter-spacing='2'%3ESMPK 3 PENABUR%3C/text%3E%3C/svg%3E");
+            pointer-events: none;
+            /* Warna teks SVG diubah menjadi putih transparan (rgba 255,255,255, 0.1) */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='250'%3E%3Ctext x='50%25' y='50%25' transform='rotate(-30 190 125)' fill='rgba(255, 255, 255, 0.1)' font-size='24' font-family='Segoe UI, system-ui, sans-serif' font-weight='800' text-anchor='middle' letter-spacing='2'%3ESMPK 3 PENABUR%3C/text%3E%3C/svg%3E");
             background-repeat: repeat;
         }
 
@@ -50,16 +46,16 @@
            3. EFEK KACA (GLASSMORPHISM) PADA CARD
            ========================================================= */
         .card { 
-            border: 1px solid rgba(255, 255, 255, 0.8) !important; 
+            border: 1px solid rgba(255, 255, 255, 0.5) !important; 
             border-radius: 16px; 
-            background: rgba(255, 255, 255, 0.85) !important; /* Semi transparan */
-            backdrop-filter: blur(12px); /* Efek blur/kaca */
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05) !important; 
+            background: rgba(255, 255, 255, 0.9) !important; /* Putih sedikit lebih pekat agar teks aman */
+            backdrop-filter: blur(16px); /* Blur ditingkatkan */
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important; 
         }
 
         /* =========================================================
-           4. IDENTITAS & KOMPONEN LAINNYA (Sesuai kode asli)
+           4. IDENTITAS & KOMPONEN LAINNYA
            ========================================================= */
         .gradient-header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; }
         .school-brand { color: #d97706; font-weight: 800; letter-spacing: 0.5px; }
@@ -80,7 +76,7 @@
 
         .dibawah-kktp { color: #dc3545 !important; font-weight: bold; }
         
-        /* Gaya Baris Biodata di Modal agar Fleksibel */
+        /* Gaya Baris Biodata di Modal */
         .rekap-info-row {
             display: flex;
             flex-wrap: nowrap;
@@ -108,11 +104,10 @@
         }
 
         /* =========================================================
-           5. CSS TANGGUH KHUSUS CETAK/PRINT REKAPAN
+           5. CSS TANGGUH KHUSUS CETAK/PRINT
            ========================================================= */
         @media print {
             @page { size: portrait; margin: 10mm 15mm 10mm 15mm; }
-            /* Mematikan background, animasi, dan watermark saat di-print agar hemat tinta */
             body { 
                 background: #ffffff !important; 
                 background-image: none !important; 
